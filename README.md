@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/f69cbfab-8e1e-4932-80b1-75a54a21e28c)# Gacha Banner Calculator
+# Gacha Banner Calculator
 
 This is a short summary and description of the code that has been developed in pure simple Java without additional modules as requested. The only library that has been used in the code is an external library called `JSON.simple`. The entire code will be attached together with this documentation. To start off, the structure of the file system of the code is represented below. The left side is the tree diagram version, and the right side is the VSCode version. Please note that the code is developed in VSCode, so if a different IDE like Eclipse or IntelliJ is used, the settings for utilizing the JSON library may have to be changed.
 
@@ -16,13 +16,13 @@ The image above shows a recreated database based on the given reference in JSON 
 
 ## Character.java
 
-![image](https://github.com/user-attachments/assets/3af433c6-b759-49e8-aead-00b5b79cc26a)
+![image](https://github.com/user-attachments/assets/77218013-70ac-4c32-bbb1-a925846c80c7)
 
 This file contains the methods for handling character names on the banner.
 
 ## Player.java
 
-![image](https://github.com/user-attachments/assets/2aaa228f-c6d4-4286-9ced-d562d81824cf)
+![image](https://github.com/user-attachments/assets/e96fe8a3-9eee-49b1-84fd-5c4694688dda)
 
 
 This file contains all the methods for handling the player's currency (gems), currency (gems) per banner, the pull count, guaranteed character, and desired character. (Please look at the actual file for the full code.)
@@ -31,15 +31,18 @@ This file contains all the methods for handling the player's currency (gems), cu
 
 This is the main file where all the decisions for the banners are made, including calculating the player's resources that update based on the banner database and player's inputs.
 
-![image](https://github.com/user-attachments/assets/5325b857-7b3c-4d50-93a2-7055f334e38e)
+![image](https://github.com/user-attachments/assets/4bc46196-7f46-4f69-be2d-5e54e2faf7c4)
+
 
 The code above represents the user input handling from the user, and they will be stored in their respective variables.
 
-![image](https://github.com/user-attachments/assets/f373c198-ca75-4c76-beee-8b059b6b0d50)
+![image](https://github.com/user-attachments/assets/a54dc63f-b624-435d-949f-e3720507d4ff)
+
 
 Then, the code creates a player object that has all the attributes that have been created previously and shows an output that displays the player's available pulls. Next, a hash map is used to check if the same character name appears in the database (JSON file). This feature will be utilized later on to make decisions on whether to pull or skip on the character depending on whether the character will have a re-run or not.
 
-![image](https://github.com/user-attachments/assets/6d0b64ff-2bea-4eaa-8c48-e3477e91776d)
+![image](https://github.com/user-attachments/assets/8e13cb63-36ca-474c-9dc8-070de5c681e2)
+
 
 The code above may look complex, but to break it down: first, it checks the user's desired character(s) and checks with the banner database. Then, there will be 3 types of decisions that will be made based on repeated characters and the player's resources. After the first check, the code will look through the database to see if the same character later appears in the database (a re-run). If the character is repeated in the database, the decision to 'Skip' will be made because it is the optimal decision to make and save resources for later. This decision is also good if the player wants multiple characters. Following on, the 'Indulge' decision will be made if the player has more pulls (calculated based on in-game currency) than the guaranteed pull count. Then, the 'Pull' decision will be made if the player has enough pulls or the exact optimal number of pulls for the desired character.
 
